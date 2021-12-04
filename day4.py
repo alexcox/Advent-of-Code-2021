@@ -13,23 +13,14 @@ for i in range(n_boards):
 sol = [-1, -1, -1, -1, -1]
 
 def part1():
-    sol_found = False
     b = boards
-    sol_index = 0
-    sol_number = 0
     for i in numbers:
         for j in range(len(b)):
             b[j][b[j] == i] = -1
             if sol in b[j].tolist() or sol in b[j].transpose().tolist():
-                sol_number = i
-                sol_found = True
-                sol_index = j
-                sol_board = b[j]
-        if sol_found == True:
-            break
-    sol_board[sol_board == -1] = 0
-    solution = sol_board.sum() * sol_number
-    return (sol_index, solution)
+                b[j][b[j] == -1] = 0
+                solution = b[j].sum() * i
+                return (j, solution)
 
 def part2():
     solution = 0
