@@ -9,7 +9,7 @@ def count_fish(fish, days):
         fish_temp = {}
         for k in fish:
             if k == 0:
-                fish_temp[8] = fish_temp.get(8, 0) + fish[0]
+                fish_temp[8] = fish[0]
                 fish_temp[6] = fish_temp.get(6, 0) + fish[0]
             else:
                 fish_temp[k - 1] = fish_temp.get(k - 1, 0) + fish[k]
