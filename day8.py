@@ -36,7 +36,6 @@ def part2():
             else: # 1, 4, 7, 8
                 d[k] = known[n]
         for y in range(4):
-            j = 10**(4 - y - 1) * d[x[1][y]]
             tmp += 10**(4 - y - 1) * d[x[1][y]]
         solution += tmp
     return solution
