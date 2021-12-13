@@ -11,7 +11,7 @@ def fold(single_fold = True):
                 p[x, fold_value - (y - fold_value)] = 1
             elif fold_axis == 'x' and x > fold_value:
                 p[fold_value - (x - fold_value), y] = 1
-        if single_fold: return sum([1 if (i, j) in p else 0 for i in range(max_x + 1) for j in range(max_y + 1)])
+        if single_fold: return sum([1 if (i, j) in p else 0 for i in range(max_x) for j in range(max_y)])
     return '\n' + '\n'.join(["".join(['#' if (i,j) in p else '.' for i in range(max_x)]) for j in range(max_y)])
 
 print(f'Solution to part 1: {fold()}')
