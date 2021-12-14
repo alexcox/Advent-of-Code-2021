@@ -8,9 +8,9 @@ def fold(single_fold = True):
         max_x, max_y = max_x if fold_axis == 'y' else int(max_x / 2), max_y if fold_axis == 'x' else int(max_y / 2)
         for (x, y) in list(p.keys()):
             if fold_axis == 'y' and y > fold_value:
-                p[x, fold_value - (y - fold_value)] = 1
+                p[x, 2 * fold_value - y] = 1
             elif fold_axis == 'x' and x > fold_value:
-                p[fold_value - (x - fold_value), y] = 1
+                p[2 * fold_value - x, y] = 1
         if single_fold: return sum([1 if (i, j) in p else 0 for i in range(max_x) for j in range(max_y)])
     return '\n' + '\n'.join(["".join(['#' if (i,j) in p else '.' for i in range(max_x)]) for j in range(max_y)])
 
