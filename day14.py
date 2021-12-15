@@ -1,5 +1,5 @@
 input = [x.split('\n') for x in open('input/day14.txt', 'r').read().split('\n\n')]
-polymer, insertion_rules = input[0][0], {k: v for k, v in [k.split(' -> ') for k in input[1]]}
+polymer, insertion_rules = input[0][0], dict(k.split(' -> ') for k in input[1])
 
 def polymer_difference(steps = 10):
     keys = list('BCHNOVPKSF')
